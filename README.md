@@ -1,7 +1,7 @@
 
 ## Chord-DHT
 
-Chord-DHT is a project that implements a [Distributed Hash Table (DHT)](https://en.wikipedia.org/wiki/Distributed_hash_table) based on the [Chord protocol](https://en.wikipedia.org/wiki/Chord_(peer-to-peer)). This project focuses on creating a dynamic DHT that supports efficient lookups using a finger table.
+Chord-DHT is a project that implements a [Distributed Hash Table (DHT)](https://en.wikipedia.org/wiki/Distributed_hash_table) based on the [Chord protocol](https://dl.acm.org/doi/pdf/10.1145/383059.383071). This project focuses on creating a dynamic DHT that supports efficient lookups using a finger table.
 
 ### Table of Contents
 
