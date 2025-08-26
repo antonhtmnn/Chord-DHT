@@ -152,7 +152,7 @@ int forward_pkt(peer *p, packet *pack) {
  */
 int send_stabilize(peer *p_sender, peer *p_reciever) {
     
-    printf(">>> send(stabilize) to -> [port=%u, ID=%u] <<<\n", p_reciever->port, p_reciever->node_id);
+    printf(">>> send (stabilize) to -> [port=%u, ID=%u] <<<\n", p_reciever->port, p_reciever->node_id);
 
     // build a stabilize message (i.e contains infos about our self)
     packet *stab_pkt = packet_new();
@@ -177,7 +177,6 @@ void *stabilize(void *arg) {
 
     while (srv->active) {
         if (srv->p_succ != NULL) {
-            printf("IT'S TIME\n");
             send_stabilize(srv->p_self, srv->p_succ);
         }
         sleep(1.9); // sleep for 1.9 seconds
@@ -187,10 +186,7 @@ void *stabilize(void *arg) {
 }
 
 void server_run(server *srv) {
-    /**
-     * TODO:
-     * Add periodic dissemination of stabilize messages.
-     */
+    
     listen(srv->socket, 10);
     srv->active = true;
     fprintf(stderr, "Starting server. Press any key to exit.\n");

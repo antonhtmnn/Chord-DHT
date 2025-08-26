@@ -391,12 +391,6 @@ int handle_packet_ctrl(server *srv, client *c, packet *p) {
         }
         clear_requests(rt, p->hash_id);
     } else {
-        /**
-         * TODO:
-         * Extend handled control messages.
-         * For the first task, this means that join-, stabilize-, and notify-messages should be understood.
-         * For the second task, finger- and f-ack-messages need to be used as well.
-         **/
         if (p->flags & PKT_FLAG_JOIN) {
             // we recieved a JOIN message
             printf("RECIEVED JOIN -> from [port=%u]\n", p->node_port);
@@ -518,9 +512,8 @@ int handle_packet(server *srv, client *c, packet *p) {
 
 /**
  * @brief Main entry for a peer of the chord ring.
- *
- * TODO:
- * Modify usage of peer. Accept:
+ * 
+ * Accept:
  * 1. Own IP and port;
  * 2. Own ID (optional, zero if not passed);
  * 3. IP and port of Node in existing DHT. This is optional: If not passed, establish new DHT, otherwise join existing.
@@ -546,7 +539,7 @@ int main(int argc, char **argv) {
 
     if (argc == 6) {
         // case 1: join DHT via entry node (set idSelf to argument ID)
-        printf("case 1: JOIN DHT via entry node -> [port=%s] (argument ID)\n", argv[5]);
+        printf("JOIN DHT via entry node -> [port=%s] (argument ID)\n", argv[5]);
 
         ipSelf = argv[1];
         portSelf = argv[2];
@@ -564,7 +557,7 @@ int main(int argc, char **argv) {
 
     } else if (argc == 5) {
         // case 2: join DHT via entry node (set idSelf to default ID)
-        printf("case 2: JOIN DHT via entry node -> [port=%s] (default ID)\n", argv[4]);
+        printf("JOIN DHT via entry node -> [port=%s] (default ID)\n", argv[4]);
 
         ipSelf = argv[1];
         portSelf = argv[2];
@@ -582,7 +575,7 @@ int main(int argc, char **argv) {
 
     } else if (argc == 4) {
         // case 3: first node in new DHT (set idSelf to argument ID)
-        printf("case 3: first node in NEW DHT (argument ID)\n");
+        printf("First node in NEW DHT (argument ID)\n");
 
         ipSelf = argv[1];
         portSelf = argv[2];
@@ -592,7 +585,7 @@ int main(int argc, char **argv) {
 
     } else if (argc == 3) {
         // case 4: first node in new DHT (set idSelf to default ID)
-        printf("case 4: first node in NEW DHT (default ID)\n");
+        printf("First node in NEW DHT (default ID)\n");
 
         ipSelf = argv[1];
         portSelf = argv[2];
