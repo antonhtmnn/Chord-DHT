@@ -78,8 +78,9 @@ echo \"Press Enter to start interacting with the DHT as specified in the demo:\"
 echo \"     0) Create local file hello.txt (in project folder)\"
 echo \"     1) SET hello.txt via Node 2\"
 echo \"     2) GET hello.txt via Node 5\"
-echo \"     3) DELETE hello.txt via Node 3\"
-echo \"     4) GET hello.txt via Node 4 (expected fail)\"
+echo \"     3) GET hello.txt via Node 4\"
+echo \"     4) DELETE hello.txt via Node 5\"
+echo \"     5) GET hello.txt via Node 4 (expected fail)\"
 echo \"\"
 
 read -rp \"0) [Press Enter] Create local file hello.txt (in project folder)\"
@@ -96,11 +97,16 @@ read -rp \"2) [Press Enter] GET hello.txt via Node 5\"
 echo \"\"
 echo \"\"
 
-read -rp \"3) [Press Enter] DELETE hello.txt via Node 3\"
-\"$CLIENT\" $IP $PORT3 DELETE /docs/hello.txt
+read -rp \"3) [Press Enter] GET hello.txt via Node 4\"
+\"$CLIENT\" $IP $PORT4 GET /docs/hello.txt
+echo \"\"
 echo \"\"
 
-read -rp \"4) [Press Enter] GET hello.txt via Node 4 (expected fail)\"
+read -rp \"4) [Press Enter] DELETE hello.txt via Node 5\"
+\"$CLIENT\" $IP $PORT5 DELETE /docs/hello.txt
+echo \"\"
+
+read -rp \"5) [Press Enter] GET hello.txt via Node 4 (expected fail)\"
 \"$CLIENT\" $IP $PORT4 GET /docs/hello.txt || echo \"\"
 
 echo \"Client demo finished.\"'"
