@@ -1,0 +1,84 @@
+# ---- Build artifacts (generic) ----
+build/
+build-*/
+cmake-build-*/
+out/
+bin/
+lib/
+dist/
+
+# ---- C/C++ compilation outputs ----
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.pdb
+*.ilk
+*.exp
+*.dSYM/
+
+# ---- CMake ----
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+# Uncomment if you don't want to commit it:
+# compile_commands.json
+CMakeUserPresets.json
+
+# ---- Coverage / Profiling ----
+*.gcda
+*.gcno
+*.gcov
+coverage/
+*.lcov
+htmlcov/
+callgrind.out.*
+massif.out.*
+
+# ---- Logs / Temp ----
+*.log
+*.tmp
+*.swp
+*.swo
+*.sw?
+*.bak
+*.old
+*.orig
+*.rej
+
+# ---- Packet captures / traces ----
+*.pcap
+*.pcapng
+*.cap
+
+# ---- Editor / IDE ----
+.vscode/
+.idea/
+.vs/
+*.code-workspace
+*.sublime-*
+.nbproject/
+
+# ---- OS cruft ----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# ---- Local env / secrets ----
+.env
+.env.*
